@@ -1,0 +1,8 @@
+__pycache__/
+.build_venv/
+build/
+dist/
+*.spec
+.DS_Store
+# upstream reference clone has its own git history
+Linkedin-Learning-Courses-Downloader/

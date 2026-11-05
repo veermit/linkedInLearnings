@@ -1,0 +1,4 @@
+requests
+yt-dlp
+browser-cookie3
+pyinstaller
