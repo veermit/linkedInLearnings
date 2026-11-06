@@ -57,10 +57,14 @@ python3 llcd_gui.py                             # Windows: python llcd_gui.py
 
 Each friend uses **their own** LinkedIn account/token. Executables must be built on the OS they target.
 
-**Windows (.exe)** - on a Windows PC with Python 3.9+ (tick "Add to PATH"):
+**Windows (.exe)** - two ways:
+
+*A. On a Windows PC* (Python 3.9+ from python.org, "Add python.exe to PATH" ticked, Tcl/Tk included):
 1. Copy `llcd_gui.py`, `requirements.txt`, `build_windows.bat` to the PC.
-2. Double-click `build_windows.bat`.
+2. Double-click `build_windows.bat` (it checks Python/Tk, builds a clean venv, runs PyInstaller).
 3. Share `dist\LinkedInLearningDownloader.exe` (single file, no Python needed). SmartScreen may warn about an unknown publisher: *More info > Run anyway*.
+
+*B. No Windows PC - GitHub Actions:* push this repo to GitHub, open **Actions > Build Windows exe > Run workflow**, then download the `LinkedInLearningDownloader-windows` artifact. Pushing a tag such as `v1.0` also attaches the `.exe` to a GitHub Release you can send to friends.
 
 **macOS (.app / .zip)**:
 ```bash
@@ -82,5 +86,6 @@ Some antivirus tools flag PyInstaller apps as false positives.
 |---|---|
 | `llcd_gui.py` | The application |
 | `requirements.txt` | Python dependencies (+ PyInstaller) |
-| `build_windows.bat` | Builds the Windows `.exe` |
+| `build_windows.bat` | Builds the Windows `.exe` (run on Windows) |
+| `.github/workflows/build-windows.yml` | Builds the Windows `.exe` on GitHub's servers |
 | `build_mac.sh` | Builds the macOS `.app` and `.zip` |
